@@ -4,73 +4,82 @@
  */
 package PRELIM;
 
+/**
+ *
+ * @author andil
+ */
 public class doublyLinkedList {
-    
-    class Node{
-        
+     class Node {
+
         int data;
         Node previous;
         Node next;
-        
-        Node(int data){
+
+        Node(int data) {
             this.data = data;
             this.previous = null;
             this.next = null;
         }
     }
-    
     Node head;
-    
-    void add(int data){
+
+    // Add a node at the end
+    void add(int data) {
         Node newNode = new Node(data);
-        if (head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         Node current = head;
-        while (current.next !=null){
+        while (current.next != null) {
             current = current.next;
         }
         current.next = newNode;
         newNode.previous = current;
     }
-    
-    void display(){
-        Node current = head ;
-        while (current != null){
+
+    // Display the list
+    void display() {
+        Node current = head;
+        while (current != null) {
             System.out.print(current.data + " <-> ");
             current = current.next;
         }
         System.out.println("null");
+
     }
-    void displaynodes(){
-    
-    Node current = head;
-    
-    while (current != null){
-        
-        System.out.print("Previous");
-        
-        if (current.previous != null){
-            System.out.print(current.previous);
-        } else {
-            System.out.print("null");
-        }
-       System.out.print(" | Data: " + current.data);
+
+    // Display nodes
+    void displaynodes() {
+        Node current = head;
+
+        while (current != null) {
+
+            System.out.print("Previous: ");
+
+            if (current.previous != null) {
+                System.out.print(current.previous);
+            } else {
+                System.out.print("null");
+            }
+
+            System.out.print(" | Data: " + current.data);
              System.out.print(" | Current Nodes: " + current);
-             
-             System.out.print(" | Next: ");
+            
+
+            System.out.print(" | Next: ");
 
             if (current.next != null) {
-                
-                  System.out.println(current.next);
+//                System.out.println(current.next.data);
+                System.out.println(current.next);
             } else {
                 System.out.println("null");
             }
-              current = current.next;
+
+            current = current.next;
+        }
     }
-    
-}
+
     public static void main(String[] args) {
         doublyLinkedList list = new doublyLinkedList();
 
@@ -80,5 +89,6 @@ public class doublyLinkedList {
 
         list.display();
         list.displaynodes();
+    
 }
 }
